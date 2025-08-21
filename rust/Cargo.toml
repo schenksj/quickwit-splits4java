@@ -1,0 +1,28 @@
+[package]
+name = "tantivy4java-splits"
+version = "0.1.0"
+edition = "2021"
+license = "Apache-2.0"
+authors = ["Tantivy4Java Contributors"]
+description = "JNI bindings for Quickwit split generation and reading in Tantivy4Java"
+
+[lib]
+name = "tantivy4java_splits"
+crate-type = ["cdylib"]
+
+[dependencies]
+tantivy = "0.24.2"
+jni = "0.21.1"
+serde = { version = "1.0", features = ["derive"] }
+serde_json = "1.0"
+bincode = "1.3"
+uuid = { version = "1.0", features = ["v4", "serde"] }
+chrono = { version = "0.4", features = ["serde"] }
+once_cell = "1.19.0"
+
+# Quickwit dependencies for hotcache implementation
+quickwit-storage = "0.8.2"
+quickwit-search = "0.8.2"
+
+[build-dependencies]
+jni = "0.21.1"
